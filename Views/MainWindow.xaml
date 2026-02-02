@@ -30,9 +30,19 @@
         <DataGridTemplateColumn Header="Status" Width="120">
           <DataGridTemplateColumn.CellTemplate>
             <DataTemplate>
-              <Border Padding="6" CornerRadius="4">
-                <TextBlock Text="{Binding Status}" HorizontalAlignment="Center"/>
+              <Border x:Name="StatusBorder" Padding="6" CornerRadius="4" Background="#4caf50">
+                <TextBlock x:Name="StatusText" Text="{Binding Status}" HorizontalAlignment="Center" Foreground="#ffffff"/>
               </Border>
+              <DataTemplate.Triggers>
+                <DataTrigger Binding="{Binding Status}" Value="Recalled">
+                  <Setter TargetName="StatusBorder" Property="Background" Value="#d32f2f" />
+                  <Setter TargetName="StatusText" Property="Foreground" Value="#ffffff" />
+                </DataTrigger>
+                <DataTrigger Binding="{Binding Status}" Value="Normal">
+                  <Setter TargetName="StatusBorder" Property="Background" Value="#4caf50" />
+                  <Setter TargetName="StatusText" Property="Foreground" Value="#ffffff" />
+                </DataTrigger>
+              </DataTemplate.Triggers>
             </DataTemplate>
           </DataGridTemplateColumn.CellTemplate>
         </DataGridTemplateColumn>

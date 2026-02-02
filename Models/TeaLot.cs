@@ -11,7 +11,8 @@ namespace TeaRecallManager.Models
     public string Origin { get; set; } = null!;
     public string Variety { get; set; } = null!;
     public DateTime HarvestDate { get; set; }
-    public string Status { get; set; } = "Normal";
+    // 状態は列挙型で管理し、DB上は文字列として保持する（AppDbContextで変換を設定）
+    public TeaLotStatus Status { get; set; } = TeaLotStatus.Normal;
 
     // ナビゲーションプロパティ
     public ICollection<ProcessEvent>? ProcessEvents { get; set; }

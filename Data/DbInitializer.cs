@@ -25,7 +25,7 @@ namespace TeaRecallManager.Data
         Origin = i % 2 == 0 ? "Fujisan Farm" : "Kawahara Farm",
         Variety = i % 3 == 0 ? "Sencha" : "Gyokuro",
         HarvestDate = DateTime.Today.AddDays(-rnd.Next(0, 30)),
-        Status = "Normal"
+        Status = TeaLotStatus.Normal
       }).ToList();
 
       await db.TeaLots.AddRangeAsync(lots);
