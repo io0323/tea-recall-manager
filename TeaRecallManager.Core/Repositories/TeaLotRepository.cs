@@ -3,7 +3,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using TeaRecallManager.Data;
-using TeaRecallManager.Models;
+using TeaRecallManager.Core.Models;
 
 namespace TeaRecallManager.Repositories
 {

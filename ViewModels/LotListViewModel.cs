@@ -2,7 +2,7 @@ using System;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Threading.Tasks;
-using TeaRecallManager.Models;
+using TeaRecallManager.Core.Models;
 using TeaRecallManager.Repositories;
 
 namespace TeaRecallManager.ViewModels
