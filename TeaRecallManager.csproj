@@ -5,7 +5,10 @@
     <UseWPF>true</UseWPF>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
-    <!-- Prevent duplicate assembly attributes when SDK auto-generates them -->
+  </PropertyGroup>
+
+  <!-- Disable SDK-generated assembly info only for the Windows target to avoid duplicate TargetFrameworkAttribute -->
+  <PropertyGroup Condition="'$(TargetFramework)' == 'net8.0-windows10.0.19041'">
     <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
   </PropertyGroup>
   <ItemGroup>
