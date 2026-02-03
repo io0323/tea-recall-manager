@@ -33,7 +33,7 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-nuget-
 
-      - name: Restore
+      - name: Restore (solution)
         # Use Bash on Windows runner to allow bash-style for loop retry logic
         shell: bash
         run: |
@@ -41,9 +41,16 @@ jobs:
             dotnet restore "${{ env.Solution_Name }}" && break || sleep $((i*5))
           done
 
-      - name: Build
-        run: dotnet build "${{ env.Solution_Name }}" --configuration Release --no-restore
+      # Build and test Core & Tests first to isolate cross-platform issues (avoid restoring WPF-specific packages early)
+      - name: Restore Tests
+        run: dotnet restore "${{ env.Test_Project_Path }}"
 
-      - name: Test
-        run: dotnet test "${{ env.Test_Project_Path }}" --no-build --verbosity normal
+      - name: Build Core
+        run: dotnet build TeaRecallManager.Core/TeaRecallManager.Core.csproj --configuration Release --no-restore
+
+      - name: Test (Core)
+        run: dotnet test "${{ env.Test_Project_Path }}" --configuration Release --no-build --verbosity normal
+
+      - name: Build (solution)
+        run: dotnet build "${{ env.Solution_Name }}" --configuration Release --no-restore
 
