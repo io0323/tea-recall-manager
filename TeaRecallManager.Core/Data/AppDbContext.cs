@@ -9,7 +9,7 @@ namespace TeaRecallManager.Data
     public DbSet<TeaLot> TeaLots => Set<TeaLot>();
     public DbSet<ProcessEvent> ProcessEvents => Set<ProcessEvent>();
     public DbSet<Shipment> Shipments => Set<Shipment>();
-    /* コンストラクタを追加し、テスト時にオプション注入できるようにする */
+
     public AppDbContext()
     {
     }
@@ -20,7 +20,6 @@ namespace TeaRecallManager.Data
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
-      // テストからオプションが注入される場合は上書きしない
       if (!optionsBuilder.IsConfigured)
       {
         optionsBuilder.UseSqlite("Data Source=tearecall.db");
@@ -29,7 +28,6 @@ namespace TeaRecallManager.Data
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
-      // TeaLot.Status を文字列で保存する（可読性向上）
       modelBuilder.Entity<TeaLot>()
         .Property(t => t.Status)
         .HasConversion<string>()
