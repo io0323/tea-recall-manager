@@ -25,8 +25,8 @@
         <DataGridTextColumn Header="LotCode" Binding="{Binding LotCode}" Width="140"/>
         <DataGridTextColumn Header="Origin" Binding="{Binding Origin}" Width="200"/>
         <DataGridTextColumn Header="Variety" Binding="{Binding Variety}" Width="120"/>
-        <DataGridTextColumn Header="HarvestDate" Binding="{Binding HarvestDate}" Width="160"
-                            Binding.StringFormat="{}{0:yyyy-MM-dd}" />
+        <DataGridTextColumn Header="HarvestDate" Width="160"
+                            Binding="{Binding HarvestDate, StringFormat={}{0:yyyy-MM-dd}}" />
         <DataGridTemplateColumn Header="Status" Width="120">
           <DataGridTemplateColumn.CellTemplate>
             <DataTemplate>
