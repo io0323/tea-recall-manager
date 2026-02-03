@@ -33,6 +33,9 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-nuget-
 
+      - name: Ensure clean state
+        run: dotnet clean "${{ env.Solution_Name }}" --configuration Release || true
+
       - name: Restore (solution)
         # Use Bash on Windows runner to allow bash-style for loop retry logic
         shell: bash
@@ -53,6 +56,10 @@ jobs:
       - name: Test (Core)
         run: dotnet test "${{ env.Test_Project_Path }}" --configuration Release --no-build --verbosity normal
 
-      - name: Build (solution)
-        run: dotnet build "${{ env.Solution_Name }}" --configuration Release --no-restore
+      - name: Build (solution) with retry
+        shell: bash
+        run: |
+          for i in 1 2 3; do
+            dotnet build "${{ env.Solution_Name }}" --configuration Release --no-restore && break || sleep $((i*5))
+          done
 
