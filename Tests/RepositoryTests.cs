@@ -6,6 +6,9 @@ using TeaRecallManager.Data;
 using TeaRecallManager.Core.Models;
 using TeaRecallManager.Repositories;
 using Xunit;
+// 明示的な型エイリアスで名前衝突を回避する
+using TeaLot = TeaRecallManager.Core.Models.TeaLot;
+using AppDbContext = TeaRecallManager.Data.AppDbContext;
 
 namespace TeaRecallManager.Tests
 {
