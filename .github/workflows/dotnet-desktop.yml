@@ -8,7 +8,7 @@ on:
 
 env:
   # 実際のソリューション/プロジェクトファイル名を指定
-  Solution_Name: TeaRecallManager.csproj
+  Solution_Name: TeaRecallManager.sln
   Test_Project_Path: Tests/TeaRecallManager.Tests.csproj
   Wap_Project_Directory: TeaRecallManager
   Wap_Project_Path: TeaRecallManager.csproj
