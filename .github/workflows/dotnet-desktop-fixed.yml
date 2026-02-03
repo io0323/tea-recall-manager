@@ -34,6 +34,8 @@ jobs:
             ${{ runner.os }}-nuget-
 
       - name: Restore
+        # Use Bash on Windows runner to allow bash-style for loop retry logic
+        shell: bash
         run: |
           for i in 1 2 3; do
             dotnet restore "${{ env.Solution_Name }}" && break || sleep $((i*5))
