@@ -1,0 +1,11 @@
+bin/
+obj/
+.vs/
+*.user
+*.suo
+*.cache
+*.db
+*.pfx
+*.nupkg
+.idea/
+*.DS_Store
