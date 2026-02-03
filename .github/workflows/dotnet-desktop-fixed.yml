@@ -1,0 +1,47 @@
+name: .NET Desktop CI (fixed)
+
+on:
+  push:
+    branches: [ develop, main ]
+  pull_request:
+    branches: [ develop, main ]
+
+env:
+  Solution_Name: TeaRecallManager.sln
+  Test_Project_Path: Tests/TeaRecallManager.Tests.csproj
+  Wap_Project_Directory: TeaRecallManager
+  Wap_Project_Path: TeaRecallManager.csproj
+
+jobs:
+  build:
+    runs-on: windows-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '8.0.x'
+
+      - name: Cache NuGet packages
+        uses: actions/cache@v4
+        with:
+          path: |
+            ~/.nuget/packages
+          key: ${{ runner.os }}-nuget-${{ hashFiles('**/*.csproj','**/*.sln') }}
+          restore-keys: |
+            ${{ runner.os }}-nuget-
+
+      - name: Restore
+        run: |
+          for i in 1 2 3; do
+            dotnet restore "${{ env.Solution_Name }}" && break || sleep $((i*5))
+          done
+
+      - name: Build
+        run: dotnet build "${{ env.Solution_Name }}" --configuration Release --no-restore
+
+      - name: Test
+        run: dotnet test "${{ env.Test_Project_Path }}" --no-build --verbosity normal
+
