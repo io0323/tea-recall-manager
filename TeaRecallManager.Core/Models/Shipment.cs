@@ -1,6 +1,6 @@
 using System;
 
-namespace TeaRecallManager.Models
+namespace TeaRecallManager.Core.Models
 {
   /* 出荷履歴を表すエンティティ */
   public class Shipment

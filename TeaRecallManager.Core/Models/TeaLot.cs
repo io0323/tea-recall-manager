@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace TeaRecallManager.Models
+namespace TeaRecallManager.Core.Models
 {
   /* 茶葉ロットを表すエンティティ */
   public class TeaLot

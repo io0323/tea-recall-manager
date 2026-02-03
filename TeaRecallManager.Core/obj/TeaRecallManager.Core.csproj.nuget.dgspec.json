@@ -1,0 +1,58 @@
+{
+  "format": 1,
+  "restore": {
+    "/Users/io/Projects/GitHub/WebProjects/Fullstack/tea-recall-manager/TeaRecallManager.Core/TeaRecallManager.Core.csproj": {}
+  },
+  "projects": {
+    "/Users/io/Projects/GitHub/WebProjects/Fullstack/tea-recall-manager/TeaRecallManager.Core/TeaRecallManager.Core.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/Users/io/Projects/GitHub/WebProjects/Fullstack/tea-recall-manager/TeaRecallManager.Core/TeaRecallManager.Core.csproj",
+        "projectName": "TeaRecallManager.Core",
+        "projectPath": "/Users/io/Projects/GitHub/WebProjects/Fullstack/tea-recall-manager/TeaRecallManager.Core/TeaRecallManager.Core.csproj",
+        "packagesPath": "/Users/io/.nuget/packages/",
+        "outputPath": "/Users/io/Projects/GitHub/WebProjects/Fullstack/tea-recall-manager/TeaRecallManager.Core/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/Users/io/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net80"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net80": {
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net80": {
+          "dependencies": {
+            "Microsoft.Data.Sqlite": {
+              "target": "Package",
+              "version": "[8.0.0, )"
+            },
+            "Microsoft.EntityFrameworkCore.Design": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[8.0.0, )"
+            },
+            "Microsoft.EntityFrameworkCore.Sqlite": {
+              "target": "Package",
+              "version": "[8.0.0, )"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/3.0.100/RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}

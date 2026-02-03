@@ -1,6 +1,6 @@
 using System;
 
-namespace TeaRecallManager.Models
+namespace TeaRecallManager.Core.Models
 {
   /* ロットに紐づく工程イベント */
   public class ProcessEvent

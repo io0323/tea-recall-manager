@@ -1,5 +1,5 @@
 using Microsoft.EntityFrameworkCore;
-using TeaRecallManager.Models;
+using TeaRecallManager.Core.Models;
 
 namespace TeaRecallManager.Data
 {

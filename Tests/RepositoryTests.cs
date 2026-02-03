@@ -3,7 +3,7 @@ using System.Threading.Tasks;
 using Microsoft.Data.Sqlite;
 using Microsoft.EntityFrameworkCore;
 using TeaRecallManager.Data;
-using TeaRecallManager.Models;
+using TeaRecallManager.Core.Models;
 using TeaRecallManager.Repositories;
 using Xunit;
 
