@@ -10,7 +10,7 @@ namespace TeaRecallManager.ViewModels
   /* ロット一覧画面向けの ViewModel。検索・読み込みを提供する */
   public class LotListViewModel : BaseViewModel
   {
-    private readonly ITeaLotRepository _repo = new TeaLotRepository();
+    private readonly ITeaLotRepository _repo;
 
     public ObservableCollection<TeaLot> Lots { get; } = new();
 
@@ -25,9 +25,10 @@ namespace TeaRecallManager.ViewModels
       }
     }
 
-    public LotListViewModel()
+    /* DI 可能にするため Repository を注入できるコンストラクタを提供する */
+    public LotListViewModel(ITeaLotRepository? repo = null)
     {
-      // コンストラクタで非同期初期化はしない（呼び出し元で await する）
+      _repo = repo ?? new TeaLotRepository();
     }
 
     /* ロットを読み込む。LINQで検索条件を適用する。 */
