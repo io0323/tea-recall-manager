@@ -29,14 +29,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <!-- WPF application definition -->
-    <ApplicationDefinition Include="App.xaml" />
-
-    <!-- Views (XAML) -->
-    <Page Include="Views\**\*.xaml" />
+    <!-- Views code-behind and ViewModels -->
     <Compile Include="Views\**\*.xaml.cs" />
-
-    <!-- ViewModels and other UI code -->
     <Compile Include="ViewModels\**\*.cs" />
     <Compile Include="App.xaml.cs" />
   </ItemGroup>
