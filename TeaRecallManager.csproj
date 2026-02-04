@@ -22,4 +22,16 @@
     <Compile Remove="TeaRecallManager.Core\**\*.cs" />
     <Compile Remove="Tests\**\*.cs" />
   </ItemGroup>
+
+  <!-- Disable default SDK globbing and explicitly include only UI sources to avoid duplicate compilation -->
+  <PropertyGroup>
+    <EnableDefaultCompileItems>false</EnableDefaultCompileItems>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <!-- Views code-behind and ViewModels -->
+    <Compile Include="Views\**\*.xaml.cs" />
+    <Compile Include="ViewModels\**\*.cs" />
+    <Compile Include="App.xaml.cs" />
+  </ItemGroup>
 </Project>
