@@ -2,5 +2,7 @@
   <PropertyGroup>
     <!-- Disable SDK auto-generated assembly attributes globally to avoid duplicate TargetFrameworkAttribute -->
     <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+    <!-- Also avoid SDK generating TargetFrameworkAttribute which can duplicate in multi-project builds -->
+    <GenerateTargetFrameworkAttribute>false</GenerateTargetFrameworkAttribute>
   </PropertyGroup>
 </Project>
