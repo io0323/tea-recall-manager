@@ -14,7 +14,16 @@
     </PackageReference>
     <PackageReference Include="Microsoft.Data.Sqlite" Version="8.0.0" />
   </ItemGroup>
+  <!-- Disable default globbing and include core sources explicitly to avoid duplicate compile items in CI -->
+  <PropertyGroup>
+    <EnableDefaultCompileItems>false</EnableDefaultCompileItems>
+  </PropertyGroup>
+
   <ItemGroup>
+    <Compile Include="Models\**\*.cs" />
+    <Compile Include="Data\**\*.cs" />
+    <Compile Include="Repositories\**\*.cs" />
+    <Compile Include="Services\**\*.cs" />
   </ItemGroup>
 
 </Project>
