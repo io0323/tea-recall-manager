@@ -5,6 +5,9 @@ using System.Threading.Tasks;
 using System.Windows.Input;
 using TeaRecallManager.Core.Services;
 using TeaRecallManager.Core.Models;
+using LiveChartsCore;
+using LiveChartsCore.SkiaSharpView;
+using LiveChartsCore.Measure;
 
 namespace TeaRecallManager.ViewModels
 {
@@ -18,6 +21,9 @@ namespace TeaRecallManager.ViewModels
     private readonly IRecallAnalysisService _service;
 
     public ObservableCollection<RelatedLotViewModel> RelatedLots { get; } = new();
+    public ISeries[] Series { get; private set; } = Array.Empty<ISeries>();
+    public Axis[] XAxes { get; } = new Axis[] { new Axis { Labels = Array.Empty<string>() } };
+    public Axis[] YAxes { get; } = new Axis[] { new Axis() };
 
     private int _seedLotId;
     public int SeedLotId
@@ -63,6 +69,17 @@ namespace TeaRecallManager.ViewModels
         {
           RelatedLots.Add(new RelatedLotViewModel(r));
         }
+        // グラフ用データ：出荷先ごとの出荷件数
+        var shipments = result.RelatedLots.SelectMany(r => r.Shipments ?? new List<Shipment>());
+        var groups = shipments
+          .GroupBy(s => s.Destination ?? "Unknown")
+          .Select(g => new { Destination = g.Key, Count = g.Count() })
+          .ToList();
+
+        XAxes[0].Labels = groups.Select(g => g.Destination).ToArray();
+        Series = new ISeries[] { new ColumnSeries<int> { Values = groups.Select(g => g.Count).ToArray() } };
+        RaisePropertyChanged(nameof(Series));
+        RaisePropertyChanged(nameof(XAxes));
       }
       finally
       {
