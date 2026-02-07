@@ -6,7 +6,7 @@
     <GenerateTargetFrameworkAttribute>false</GenerateTargetFrameworkAttribute>
   </PropertyGroup>
   <!-- Disable implicit compile items only for Core project so it can explicitly include sources -->
-  <PropertyGroup Condition="'$(MSBuildProjectName)' == 'TeaRecallManager.Core'">
+  <PropertyGroup Condition="'$(MSBuildProjectName)' == 'TeaRecallManager.Core' Or '$(MSBuildProjectFile)' == 'TeaRecallManager.Core.csproj'">
     <EnableDefaultCompileItems>false</EnableDefaultCompileItems>
   </PropertyGroup>
 </Project>
