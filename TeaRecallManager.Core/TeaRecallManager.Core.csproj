@@ -22,6 +22,7 @@
     <Compile Include="Models\**\*.cs" />
     <Compile Include="Data\**\*.cs" />
     <Compile Include="Repositories\**\*.cs" />
+    <Compile Include="Services\**\*.cs" />
   </ItemGroup>
   
   
