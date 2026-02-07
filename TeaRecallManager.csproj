@@ -5,26 +5,21 @@
     <UseWPF>true</UseWPF>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
-    <!-- Prevent SDK from implicitly including Page/Resource/Compile items -->
-    <EnableDefaultPageItems>false</EnableDefaultPageItems>
-    <EnableDefaultItems>false</EnableDefaultItems>
   </PropertyGroup>
 
-  <!-- Disable SDK-generated assembly info only for the Windows target to avoid duplicate TargetFrameworkAttribute -->
   <PropertyGroup Condition="'$(TargetFramework)' == 'net8.0-windows10.0.19041'">
     <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
   </PropertyGroup>
-  
+
   <ItemGroup>
     <ProjectReference Include="TeaRecallManager.Core/TeaRecallManager.Core.csproj" />
   </ItemGroup>
-  <!-- Exclude source files under Core and Tests folders from root project default globbing -->
+
   <ItemGroup>
     <Compile Remove="TeaRecallManager.Core\**\*.cs" />
     <Compile Remove="Tests\**\*.cs" />
   </ItemGroup>
 
-  <!-- Disable default SDK globbing and explicitly include only UI sources to avoid duplicate compilation -->
   <PropertyGroup>
     <EnableDefaultCompileItems>false</EnableDefaultCompileItems>
     <EnableDefaultPageItems>false</EnableDefaultPageItems>
@@ -36,9 +31,12 @@
     <Compile Include="ViewModels\**\*.cs" />
     <Compile Include="App.xaml.cs" />
   </ItemGroup>
+
   <ItemGroup>
+    <Page Include="App.xaml" />
     <Page Include="Views\**\*.xaml" />
   </ItemGroup>
+
   <ItemGroup>
     <PackageReference Include="LiveChartsCore.SkiaSharpView.WPF" Version="2.0.0-rc6.1" />
     <PackageReference Include="LiveChartsCore" Version="2.0.0-rc6.1" />
