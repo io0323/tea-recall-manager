@@ -5,8 +5,4 @@
     <!-- Also avoid SDK generating TargetFrameworkAttribute which can duplicate in multi-project builds -->
     <GenerateTargetFrameworkAttribute>false</GenerateTargetFrameworkAttribute>
   </PropertyGroup>
-  <!-- Disable implicit compile items only for Core project so it can explicitly include sources -->
-  <PropertyGroup Condition="'$(MSBuildProjectName)' == 'TeaRecallManager.Core' Or '$(MSBuildProjectFile)' == 'TeaRecallManager.Core.csproj'">
-    <EnableDefaultCompileItems>false</EnableDefaultCompileItems>
-  </PropertyGroup>
 </Project>
