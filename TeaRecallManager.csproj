@@ -6,6 +6,7 @@
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
     <!-- Prevent SDK from implicitly including Page/Resource/Compile items -->
+    <EnableDefaultPageItems>false</EnableDefaultPageItems>
     <EnableDefaultItems>false</EnableDefaultItems>
   </PropertyGroup>
 
@@ -26,6 +27,7 @@
   <!-- Disable default SDK globbing and explicitly include only UI sources to avoid duplicate compilation -->
   <PropertyGroup>
     <EnableDefaultCompileItems>false</EnableDefaultCompileItems>
+    <EnableDefaultPageItems>false</EnableDefaultPageItems>
   </PropertyGroup>
 
   <ItemGroup>
