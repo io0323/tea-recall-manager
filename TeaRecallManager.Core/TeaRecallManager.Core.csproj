@@ -5,6 +5,8 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <!-- Prevent duplicate assembly attributes when SDK auto-generates them -->
     <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+    <!-- Prevent SDK from implicitly including Page/Resource/Compile items -->
+    <EnableDefaultItems>false</EnableDefaultItems>
   </PropertyGroup>
 
   <ItemGroup>
