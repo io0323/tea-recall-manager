@@ -14,6 +14,11 @@
     </PackageReference>
     <PackageReference Include="Microsoft.Data.Sqlite" Version="8.0.0" />
   </ItemGroup>
+  <!-- Remove potential implicit duplicates for these service files before explicit include -->
+  <ItemGroup>
+    <Compile Remove="Services\IRecallAnalysisService.cs" />
+    <Compile Remove="Services\RecallAnalysisService.cs" />
+  </ItemGroup>
   <PropertyGroup>
     <!-- Disable SDK implicit compile items for Core and include sources explicitly to avoid duplicate-includes -->
     <EnableDefaultCompileItems>false</EnableDefaultCompileItems>
