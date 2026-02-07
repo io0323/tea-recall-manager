@@ -15,15 +15,25 @@
       <Button x:Name="AnalyzeBtn" Content="分析実行" Width="100" Height="28" Margin="8 0 0 0"/>
     </StackPanel>
 
-    <DataGrid x:Name="RelatedGrid" Grid.Row="1" AutoGenerateColumns="False" IsReadOnly="True"
-              RowBackground="#333" AlternatingRowBackground="#2f2f2f">
-      <DataGrid.Columns>
-        <DataGridTextColumn Header="LotCode" Binding="{Binding LotCode}" Width="200"/>
-        <DataGridTextColumn Header="Origin" Binding="{Binding Origin}" Width="200"/>
-        <DataGridTextColumn Header="Shipped" Binding="{Binding IsShipped}" Width="100"/>
-        <DataGridTextColumn Header="Shipments" Binding="{Binding ShipmentsCount}" Width="100"/>
-      </DataGrid.Columns>
-    </DataGrid>
+    <Grid Grid.Row="1">
+      <Grid.ColumnDefinitions>
+        <ColumnDefinition Width="2*" />
+        <ColumnDefinition Width="3*" />
+      </Grid.ColumnDefinitions>
+
+      <DataGrid x:Name="RelatedGrid" Grid.Column="0" AutoGenerateColumns="False" IsReadOnly="True"
+                RowBackground="#333" AlternatingRowBackground="#2f2f2f">
+        <DataGrid.Columns>
+          <DataGridTextColumn Header="LotCode" Binding="{Binding LotCode}" Width="200"/>
+          <DataGridTextColumn Header="Origin" Binding="{Binding Origin}" Width="200"/>
+          <DataGridTextColumn Header="Shipped" Binding="{Binding IsShipped}" Width="100"/>
+          <DataGridTextColumn Header="Shipments" Binding="{Binding ShipmentsCount}" Width="100"/>
+        </DataGrid.Columns>
+      </DataGrid>
+
+      <lvc:CartesianChart Grid.Column="1" Series="{Binding Series}" XAxes="{Binding XAxes}" YAxes="{Binding YAxes}" />
+    </Grid>
   </Grid>
+</Window>
 </Window>
 
