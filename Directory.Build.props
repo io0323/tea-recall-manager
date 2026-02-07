@@ -4,7 +4,5 @@
     <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
     <!-- Also avoid SDK generating TargetFrameworkAttribute which can duplicate in multi-project builds -->
     <GenerateTargetFrameworkAttribute>false</GenerateTargetFrameworkAttribute>
-    <!-- Disable SDK implicit compile/include items globally; projects will explicitly include what they need -->
-    <EnableDefaultCompileItems>false</EnableDefaultCompileItems>
   </PropertyGroup>
 </Project>
