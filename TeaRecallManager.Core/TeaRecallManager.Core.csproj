@@ -14,8 +14,13 @@
     </PackageReference>
     <PackageReference Include="Microsoft.Data.Sqlite" Version="8.0.0" />
   </ItemGroup>
-  <!-- Disable default globbing and include core sources explicitly to avoid duplicate compile items in CI -->
+  <!-- Remove potential implicit duplicates for these service files before explicit include -->
+  <ItemGroup>
+    <Compile Remove="Services\IRecallAnalysisService.cs" />
+    <Compile Remove="Services\RecallAnalysisService.cs" />
+  </ItemGroup>
   <PropertyGroup>
+    <!-- Disable SDK implicit compile items for Core and include sources explicitly to avoid duplicate-includes -->
     <EnableDefaultCompileItems>false</EnableDefaultCompileItems>
   </PropertyGroup>
 
@@ -23,8 +28,11 @@
     <Compile Include="Models\**\*.cs" />
     <Compile Include="Data\**\*.cs" />
     <Compile Include="Repositories\**\*.cs" />
-    <Compile Include="Services\**\*.cs" />
+    <!-- Include implementation-only services to avoid duplicate path entries -->
+    <Compile Include="Services\Impl\**\*.cs" />
   </ItemGroup>
+  
+  
 
 </Project>
 
