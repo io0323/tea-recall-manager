@@ -28,7 +28,8 @@
     <Compile Include="Models\**\*.cs" />
     <Compile Include="Data\**\*.cs" />
     <Compile Include="Repositories\**\*.cs" />
-    <Compile Include="Services\**\*.cs" />
+    <!-- Include implementation-only services to avoid duplicate path entries -->
+    <Compile Include="Services\Impl\**\*.cs" />
   </ItemGroup>
   
   
