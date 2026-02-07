@@ -14,21 +14,6 @@
     </PackageReference>
     <PackageReference Include="Microsoft.Data.Sqlite" Version="8.0.0" />
   </ItemGroup>
-  <PropertyGroup>
-    <EnableDefaultCompileItems>false</EnableDefaultCompileItems>
-  </PropertyGroup>
-
-  <ItemGroup>
-    <Compile Include="Models\**\*.cs" />
-    <Compile Include="Data\**\*.cs" />
-    <Compile Include="Repositories\**\*.cs" />
-    <Compile Include="Services\**\*.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <!-- Ensure these service files are not duplicated by implicit items -->
-    <Compile Remove="Services\IRecallAnalysisService.cs" />
-    <Compile Remove="Services\RecallAnalysisService.cs" />
-  </ItemGroup>
   
   
 
