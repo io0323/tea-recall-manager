@@ -5,15 +5,15 @@
     <UseWPF>true</UseWPF>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
+    <!-- Prevent SDK from implicitly including Page/Resource/Compile items -->
+    <EnableDefaultItems>false</EnableDefaultItems>
   </PropertyGroup>
 
   <!-- Disable SDK-generated assembly info only for the Windows target to avoid duplicate TargetFrameworkAttribute -->
   <PropertyGroup Condition="'$(TargetFramework)' == 'net8.0-windows10.0.19041'">
     <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
   </PropertyGroup>
-  <ItemGroup>
-    <PackageReference Include="LiveChartsCore.SkiaSharpView.WPF" Version="2.0.0-rc6.1" />
-  </ItemGroup>
+  
   <ItemGroup>
     <ProjectReference Include="TeaRecallManager.Core/TeaRecallManager.Core.csproj" />
   </ItemGroup>
