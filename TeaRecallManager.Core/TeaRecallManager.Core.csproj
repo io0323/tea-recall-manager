@@ -14,6 +14,17 @@
     </PackageReference>
     <PackageReference Include="Microsoft.Data.Sqlite" Version="8.0.0" />
   </ItemGroup>
+  <PropertyGroup>
+    <!-- Disable SDK implicit compile items for Core and include sources explicitly to avoid duplicate-includes -->
+    <EnableDefaultCompileItems>false</EnableDefaultCompileItems>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Include="Models\**\*.cs" />
+    <Compile Include="Data\**\*.cs" />
+    <Compile Include="Repositories\**\*.cs" />
+    <Compile Include="Services\**\*.cs" />
+  </ItemGroup>
   
   
 
