@@ -24,6 +24,11 @@
     <Compile Include="Repositories\**\*.cs" />
     <Compile Include="Services\**\*.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <!-- Ensure these service files are not duplicated by implicit items -->
+    <Compile Remove="Services\IRecallAnalysisService.cs" />
+    <Compile Remove="Services\RecallAnalysisService.cs" />
+  </ItemGroup>
   
   
 
