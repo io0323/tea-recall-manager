@@ -51,6 +51,18 @@ jobs:
       - name: Restore Tests
         run: dotnet restore "${{ env.Test_Project_Path }}"
 
+      - name: Dump workspace listing before Core build (diagnostic)
+        if: always()
+        shell: pwsh
+        run: |
+          Get-ChildItem -Recurse -Force | Select-Object FullName | Out-File -FilePath pre_build_workspace_listing.txt -Encoding utf8
+      - name: Upload pre-build workspace listing
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: pre_build_workspace_listing
+          path: pre_build_workspace_listing.txt
+
       - name: Build Core
         run: dotnet build TeaRecallManager.Core/TeaRecallManager.Core.csproj --configuration Release --no-restore /bl:TeaRecallManager.Core.binlog
       - name: Dump workspace listing (for diagnostics)
