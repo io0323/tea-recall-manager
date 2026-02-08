@@ -20,6 +20,8 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <!-- Ensure any implicit Service files are removed to avoid duplicates -->
+    <Compile Remove="Services\**\*.cs" />
     <Compile Include="Models\**\*.cs" />
     <Compile Include="Data\**\*.cs" />
     <Compile Include="Repositories\**\*.cs" />
