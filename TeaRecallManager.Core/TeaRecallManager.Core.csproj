@@ -3,10 +3,8 @@
     <TargetFramework>net8.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
-    <!-- Prevent duplicate assembly attributes when SDK auto-generates them -->
+    <!-- Prevent SDK auto-generated assembly attributes which may duplicate -->
     <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
-    <!-- Prevent SDK from implicitly including Page/Resource/Compile items -->
-    <EnableDefaultItems>false</EnableDefaultItems>
   </PropertyGroup>
 
   <ItemGroup>
@@ -16,25 +14,6 @@
     </PackageReference>
     <PackageReference Include="Microsoft.Data.Sqlite" Version="8.0.0" />
   </ItemGroup>
-  <!-- Remove potential implicit duplicates for these service files before explicit include -->
-  <ItemGroup>
-    <Compile Remove="Services\IRecallAnalysisService.cs" />
-    <Compile Remove="Services\RecallAnalysisService.cs" />
-  </ItemGroup>
-  <PropertyGroup>
-    <!-- Disable SDK implicit compile items for Core and include sources explicitly to avoid duplicate-includes -->
-    <EnableDefaultCompileItems>false</EnableDefaultCompileItems>
-  </PropertyGroup>
-
-  <ItemGroup>
-    <Compile Include="Models\**\*.cs" />
-    <Compile Include="Data\**\*.cs" />
-    <Compile Include="Repositories\**\*.cs" />
-    <!-- Include implementation-only services to avoid duplicate path entries -->
-    <Compile Include="Services\Impl\**\*.cs" />
-  </ItemGroup>
-  
-  
 
 </Project>
 
