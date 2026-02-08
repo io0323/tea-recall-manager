@@ -14,6 +14,17 @@
     </PackageReference>
     <PackageReference Include="Microsoft.Data.Sqlite" Version="8.0.0" />
   </ItemGroup>
+  <PropertyGroup>
+    <!-- Opt out of SDK implicit compile items and include sources explicitly -->
+    <EnableDefaultCompileItems>false</EnableDefaultCompileItems>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Include="Models\**\*.cs" />
+    <Compile Include="Data\**\*.cs" />
+    <Compile Include="Repositories\**\*.cs" />
+    <Compile Include="Services\Impl\**\*.cs" />
+  </ItemGroup>
 
 </Project>
 
