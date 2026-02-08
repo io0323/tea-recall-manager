@@ -15,8 +15,10 @@
     <PackageReference Include="Microsoft.Data.Sqlite" Version="8.0.0" />
   </ItemGroup>
   <PropertyGroup>
-    <!-- Opt out of SDK implicit compile items and include sources explicitly -->
+    <!-- Opt out of SDK implicit compile/page/resource items and include sources explicitly -->
+    <EnableDefaultItems>false</EnableDefaultItems>
     <EnableDefaultCompileItems>false</EnableDefaultCompileItems>
+    <EnableDefaultPageItems>false</EnableDefaultPageItems>
   </PropertyGroup>
 
   <ItemGroup>
