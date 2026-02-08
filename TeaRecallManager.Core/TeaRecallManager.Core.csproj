@@ -15,11 +15,17 @@
     <PackageReference Include="Microsoft.Data.Sqlite" Version="8.0.0" />
   </ItemGroup>
   <PropertyGroup>
-    <!-- Opt out of SDK implicit compile items and include sources explicitly -->
+    <!-- Opt out of SDK implicit compile/page/resource items and include sources explicitly -->
+    <EnableDefaultItems>false</EnableDefaultItems>
     <EnableDefaultCompileItems>false</EnableDefaultCompileItems>
+    <EnableDefaultPageItems>false</EnableDefaultPageItems>
   </PropertyGroup>
 
   <ItemGroup>
+    <!-- Ensure any implicit Service files are removed to avoid duplicates -->
+    <Compile Remove="Services\**\*.cs" />
+    <Compile Remove="**\IRecallAnalysisService.cs" />
+    <Compile Remove="**\RecallAnalysisService.cs" />
     <Compile Include="Models\**\*.cs" />
     <Compile Include="Data\**\*.cs" />
     <Compile Include="Repositories\**\*.cs" />

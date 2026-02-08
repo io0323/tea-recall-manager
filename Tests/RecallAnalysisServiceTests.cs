@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.Data.Sqlite;
@@ -37,23 +38,25 @@ namespace Tests
 
         var seedLot = new TeaLot
         {
-          LotCode = \"SEED-001\",
-          Origin = \"TestFarm\",
-          Variety = \"Assam\",
-          HarvestDate = DateTime.Today.AddDays(-10)
+          LotCode = "SEED-001",
+          Origin = "TestFarm",
+          Variety = "Assam",
+          HarvestDate = DateTime.Today.AddDays(-10),
+          ProcessEvents = new List<ProcessEvent>()
         };
 
         var otherLotSameDay = new TeaLot
         {
-          LotCode = \"OTHER-001\",
-          Origin = \"TestFarm2\",
-          Variety = \"Assam\",
-          HarvestDate = DateTime.Today.AddDays(-9)
+          LotCode = "OTHER-001",
+          Origin = "TestFarm2",
+          Variety = "Assam",
+          HarvestDate = DateTime.Today.AddDays(-9),
+          ProcessEvents = new List<ProcessEvent>()
         };
 
         // 同じ加工日を持つ ProcessEvent を追加
-        seedLot.ProcessEvents.Add(new ProcessEvent { EventType = \"Roast\", OccurredAt = DateTime.Today });
-        otherLotSameDay.ProcessEvents.Add(new ProcessEvent { EventType = \"Roast\", OccurredAt = DateTime.Today });
+        seedLot.ProcessEvents.Add(new ProcessEvent { EventType = "Roast", OccurredAt = DateTime.Today });
+        otherLotSameDay.ProcessEvents.Add(new ProcessEvent { EventType = "Roast", OccurredAt = DateTime.Today });
 
         db.TeaLots.Add(seedLot);
         db.TeaLots.Add(otherLotSameDay);
@@ -69,7 +72,7 @@ namespace Tests
         Assert.NotNull(result);
         Assert.Equal(1, result.RelatedLots.Count); // otherLotSameDay が 1 件見つかるはず
         var related = result.RelatedLots.First();
-        Assert.Equal(\"OTHER-001\", related.TeaLot?.LotCode);
+        Assert.Equal("OTHER-001", related.TeaLot?.LotCode);
       }
 
       await connection.CloseAsync();

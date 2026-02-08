@@ -18,6 +18,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\/TeaRecallManager.Core\/TeaRecallManager.Core.csproj" />
+    <ProjectReference Include="..\/TeaRecallManager.csproj" />
   </ItemGroup>
 </Project>
 
