@@ -54,6 +54,7 @@ jobs:
       - name: Build Core
         run: dotnet build TeaRecallManager.Core/TeaRecallManager.Core.csproj --configuration Release --no-restore /bl:TeaRecallManager.Core.binlog
       - name: Upload Core binlog
+        if: always()
         uses: actions/upload-artifact@v4
         with:
           name: TeaRecallManager.Core.binlog
