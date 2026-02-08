@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.Data.Sqlite;
@@ -40,7 +41,8 @@ namespace Tests
           LotCode = "SEED-001",
           Origin = "TestFarm",
           Variety = "Assam",
-          HarvestDate = DateTime.Today.AddDays(-10)
+          HarvestDate = DateTime.Today.AddDays(-10),
+          ProcessEvents = new List<ProcessEvent>()
         };
 
         var otherLotSameDay = new TeaLot
@@ -48,7 +50,8 @@ namespace Tests
           LotCode = "OTHER-001",
           Origin = "TestFarm2",
           Variety = "Assam",
-          HarvestDate = DateTime.Today.AddDays(-9)
+          HarvestDate = DateTime.Today.AddDays(-9),
+          ProcessEvents = new List<ProcessEvent>()
         };
 
         // 同じ加工日を持つ ProcessEvent を追加
